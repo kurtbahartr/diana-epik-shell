@@ -5,12 +5,15 @@ import AstalBattery from "gi://AstalBattery";
 import AstalWp from "gi://AstalWp";
 import { bind } from "astal";
 import AstalPowerProfiles from "gi://AstalPowerProfiles";
+import Network from "gi://AstalNetwork";
 
 export default function QSPanelButton() {
   const battery = AstalBattery.get_default();
   const wp = AstalWp.get_default();
   const speaker = wp?.audio.defaultSpeaker!;
   const powerprofile = AstalPowerProfiles.get_default();
+  const network = Network.get_default();
+  const wifi = network?.wifi!;
 
   return (
     <PanelButton
@@ -20,20 +23,27 @@ export default function QSPanelButton() {
       }}
     >
       <box spacing={2}>
-        <image iconName={bind(battery, "batteryIconName")} />
-        <image iconName={bind(speaker, "volumeIcon")} />
         <image
-          marginStart={2}
+          marginEnd={2}
           visible={bind(powerprofile, "activeProfile").as(
             (p) => p === "power-saver",
           )}
           iconName={`power-profile-power-saver-symbolic`}
         />
         <image
-          marginStart={2}
+          marginEnd={2}
+          visible={bind(powerprofile, "activeProfile").as(
+            (p) => p === "performance",
+          )}
+          iconName={`power-profile-performance-symbolic`}
+        />
+        <image
           visible={wp?.defaultMicrophone && bind(wp.default_microphone, "mute")}
           iconName="microphone-disabled-symbolic"
         />
+        <image iconName={bind(wifi, "iconName")} />
+        <image iconName={bind(speaker, "volumeIcon")} />
+        <image iconName={bind(battery, "batteryIconName")} />
       </box>
     </PanelButton>
   );

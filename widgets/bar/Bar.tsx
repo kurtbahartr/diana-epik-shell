@@ -1,7 +1,6 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk4";
 import TimePanelButton from "./TimePanelButton";
 import WorkspacesPanelButton from "./WorkspacesPanelButton";
-import NetworkSpeedPanelButton from "./NetworkSpeedPanelButton";
 import RecordIndicatorPanelButton from "./RecordIndicatorPanelButton";
 import LauncherPanelButton from "./LauncherPanelButton";
 import NotifPanelButton from "./NotifPanelButton";
@@ -20,7 +19,6 @@ const panelButton = {
   workspace: () => <WorkspacesPanelButton />,
   time: () => <TimePanelButton />,
   notification: () => <NotifPanelButton />,
-  network_speed: () => <NetworkSpeedPanelButton />,
   quicksetting: () => <QSPanelButton />,
 };
 
@@ -54,12 +52,9 @@ function Center() {
 function End() {
   return (
     <box halign={Gtk.Align.END}>
-      {end((e) =>
-        separatorBetween(
-          e.map((w) => panelButton[w]()),
-          Gtk.Orientation.VERTICAL,
-        ),
-      )}
+      {end((e) => [
+        <QSPanelButton />
+      ])}
     </box>
   );
 }

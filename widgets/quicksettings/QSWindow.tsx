@@ -1,4 +1,5 @@
 import PopupWindow from "../common/PopupWindow";
+import WifiQS from "./buttons/WifiQS";
 import DarkModeQS from "./buttons/DarkModeQS";
 import ColorPickerQS from "./buttons/ColorPickerQS";
 import ScreenshotQS from "./buttons/ScreenshotQS";
@@ -34,6 +35,7 @@ const layout = Variable.derive(
 function QSButtons() {
   return (
     <FlowBox maxChildrenPerLine={3} homogeneous>
+      <WifiQS />
       <DarkModeQS />
       <ColorPickerQS />
       <ScreenshotQS />

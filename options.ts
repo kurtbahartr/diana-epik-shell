@@ -82,13 +82,13 @@ const options = mkOptions(
         },
       },
       light: {
-        bg: opt("#fbf1c7"),
+        bg: opt("#ffb0cf"),
         fg: opt("#3c3836"),
         red: opt("#cc241d"),
       },
       dark: {
         bg: opt("#282828"),
-        fg: opt("#ebdbb2"),
+        fg: opt("#ffb0cf"),
         red: opt("#cc241d"),
       },
     },

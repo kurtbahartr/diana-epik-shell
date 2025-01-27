@@ -56,14 +56,8 @@ function SearchEntry() {
   };
 
   return (
-    <overlay cssClasses={["entry-overlay"]} heightRequest={100}>
-      <Gtk.ScrolledWindow heightRequest={100}>
-        <Picture
-          file={wallpaper.current((w) => Gio.file_new_for_path(w))}
-          contentFit={Gtk.ContentFit.COVER}
-          overflow={Gtk.Overflow.HIDDEN}
-        />
-      </Gtk.ScrolledWindow>
+    <overlay cssClasses={["entry-overlay"]} heightRequest={25}>
+      <Gtk.ScrolledWindow heightRequest={25} />
       <entry
         type="overlay"
         vexpand

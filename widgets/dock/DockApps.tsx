@@ -161,7 +161,7 @@ function MediaPlayer({ player }) {
   );
 
   return (
-    <box cssClasses={["media-player"]} hexpand>
+    <box cssClasses={["media-player"]} hexpand spacing={10}>
       <image
         overflow={Gtk.Overflow.HIDDEN}
         pixelSize={35}

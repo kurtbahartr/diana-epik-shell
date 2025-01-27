@@ -25,14 +25,13 @@ function AppButton({
   client,
 }: AppButtonProps) {
   const substitute = {
-    firefox: "firefox-symbolic",
-    Alacritty: "terminal-symbolic",
+    "org.wezfurlong.wezterm": "utilities-terminal-symbolic",
     localsend: "send-to-symbolic",
     "spotify-client": "org.gnome.Lollypop-spotify-symbolic",
     "org.gnome.Nautilus": "system-file-manager-symbolic",
   };
 
-  const iconName = substitute[app.iconName] ?? app.iconName;
+  const iconName = substitute[app.iconName] ?? `${app.iconName}-symbolic`;
 
   return (
     <button

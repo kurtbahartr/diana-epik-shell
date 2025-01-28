@@ -4,6 +4,7 @@ import WorkspacesPanelButton from "./WorkspacesPanelButton";
 import RecordIndicatorPanelButton from "./RecordIndicatorPanelButton";
 import LauncherPanelButton from "./LauncherPanelButton";
 import NotifPanelButton from "./NotifPanelButton";
+import ColorPickerButton from "./ColorPickerButton";
 import QSPanelButton from "./QSPanelButton";
 import { separatorBetween } from "../../utils";
 import options from "../../options";
@@ -19,6 +20,7 @@ const panelButton = {
   workspace: () => <WorkspacesPanelButton />,
   time: () => <TimePanelButton />,
   notification: () => <NotifPanelButton />,
+  colorpicker: () => <ColorPickerButton />,
   quicksetting: () => <QSPanelButton />,
 };
 
@@ -53,7 +55,13 @@ function End() {
   return (
     <box halign={Gtk.Align.END}>
       {end((e) => [
-        <QSPanelButton />
+        separatorBetween(
+          [
+            <ColorPickerButton />,
+            <QSPanelButton />,
+          ],
+          Gtk.Orientation.VERTICAL,
+        ),
       ])}
     </box>
   );

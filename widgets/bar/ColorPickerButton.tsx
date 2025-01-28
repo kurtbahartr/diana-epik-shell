@@ -1,18 +1,16 @@
 import { execAsync } from "astal";
 import { App } from "astal/gtk4";
-import { notifySend } from "../../../utils";
-import { WINDOW_NAME } from "../QSWindow";
-import QSButton from "../QSButton";
+import { notifySend } from "../../utils";
 import { timeout } from "astal";
+import PanelButton from "../common/PanelButton";
 
-export default function ColorPickerQS() {
+export default function ColorPickerButton() {
   return (
-    <QSButton
+    <PanelButton
       onClicked={() => {
         const wlCopy = (color: string) =>
           execAsync(["wl-copy", color]).catch(console.error);
 
-        App.toggle_window(WINDOW_NAME);
         timeout(200, () => {
           execAsync("hyprpicker")
             .then((color) => {
@@ -29,7 +27,6 @@ export default function ColorPickerQS() {
         });
       }}
       iconName={"color-select-symbolic"}
-      label={"Color Picker"}
     />
   );
 }

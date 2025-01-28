@@ -31,7 +31,7 @@ function AppButton({
     "org.gnome.Nautilus": "system-file-manager-symbolic",
   };
 
-  const iconName = substitute[app.iconName] ?? `${app.iconName}-symbolic`;
+  const iconName = substitute[app.iconName] ?? `${app.iconName}-symbolic` ?? app.iconName ?? "application-x-executable";
 
   return (
     <button
